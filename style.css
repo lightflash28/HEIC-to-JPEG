@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.upload-area {
+  border: 2px dashed #aaa;
+  padding: 40px;
+  background-color: #fff;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.upload-area.drag-over {
+  background-color: #f0f8ff;
+}
+
+.upload-area p {
+  color: #777;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.output {
+  margin-top: 20px;
+}
+
+.file-output {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #ddd;
+  height: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  width: 0;
+  background-color: #4CAF50;
+  transition: width 0.3s;
+}
+
+.download-button, #download-all-button {
+  padding: 8px 16px;
+  background-color: #2196F3;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.download-button:hover, #download-all-button:hover {
+  background-color: #0b7dda;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+#preview-image {
+  max-width: 90%;
+  max-height: 80vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+#preview-image {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#zip-progress-bar {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 10px;
+  display: none; /* Hidden by default, shown when zipping */
+}
+
+#zip-progress-bar-inner {
+  height: 10px;
+  background-color: #4caf50;
+  width: 0%;
+}

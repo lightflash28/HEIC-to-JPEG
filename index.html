@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HEIC to JPEG Converter</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/heic2any/dist/heic2any.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>HEIC to JPEG Converter</h1>
+    <div id="upload-area" class="upload-area">
+      <p>Drag & Drop HEIC files here or click to upload</p>
+      <input type="file" id="file-input" accept=".heic" multiple hidden>
+    </div>
+    <button id="convert-button" disabled>Convert to JPEG</button>
+    <div id="output" class="output"></div>
+  </div>
+
+  <!-- Image Preview Modal -->
+  <div id="preview-modal" class="modal">
+    <span class="close" onclick="closePreviewModal()">&times;</span>
+    <img id="preview-image" class="modal-content">
+  </div>
+
+  <!-- Download All as ZIP Modal -->
+  <div id="zip-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeZipModal()">&times;</span>
+      <p>All images have been converted!</p>
+      <button id="download-all-button">Download All as ZIP</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
