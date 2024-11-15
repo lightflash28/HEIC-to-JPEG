@@ -28,7 +28,7 @@ uploadArea.addEventListener('drop', (e) => {
 fileInput.addEventListener('change', () => handleFiles(fileInput.files));
 
 function handleFiles(files) {
-  heicFiles = Array.from(files).filter(file => file.type === 'image/heic');
+  heicFiles = Array.from(files).filter(file => file.name.toLowerCase().endsWith('.heic'));
   if (heicFiles.length > 0) {
     convertButton.disabled = false;
     displayFileNames();
@@ -139,7 +139,7 @@ downloadAllButton.addEventListener('click', async () => {
   } else {
     // Zip all images for download
     zipProgressBar.style.display = "block";
-    zipProgressInner.style.width = "50%";  // Show halfway progress immediately
+    zipProgressInner.style.width = "0%";  // Start at 0%
 
     const zip = new JSZip();
     const folder = zip.folder("converted_images");
@@ -149,6 +149,10 @@ downloadAllButton.addEventListener('click', async () => {
       const response = await fetch(img.url);
       const blob = await response.blob();
       folder.file(img.name, blob); // Keeps original name with .jpg extension
+      
+      // Update progress bar based on the number of files
+      const progress = ((i + 1) / convertedImages.length) * 100;
+      zipProgressInner.style.width = `${progress}%`;
     }
 
     zip.generateAsync({ type: "blob" }).then((blob) => {
