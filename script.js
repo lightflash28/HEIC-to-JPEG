@@ -130,11 +130,12 @@ function closeZipModal() {
 
 downloadAllButton.addEventListener('click', async () => {
   if (convertedImages.length === 1) {
-    // Directly download single image with original name
+    // Directly download single image
     const singleImage = convertedImages[0];
-    downloadAllButton.href = singleImage.url;
-    downloadAllButton.download = singleImage.name; // Set original name
-    downloadAllButton.click();
+    const link = document.createElement('a');
+    link.href = singleImage.url;
+    link.download = singleImage.name;
+    link.click();
   } else {
     // Zip all images for download
     zipProgressBar.style.display = "block";
